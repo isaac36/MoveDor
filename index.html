@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html  lang="pt-br">
+<head>
+	<meta charset="utf-8">
+	<title>Movimento VS DLC</title>
+	<link rel="stylesheet" type="text/css" href="style.css"/>
+	<script src="jquery-3.4.1.min.js" type="text/javascript"></script>
+	<script src="animações.js"></script>
+	 <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<!-- imagens do personagem da teoria sociocultural devem ser colocadas diretamente abaixo do head -->
+
+<!-- Animações -->
+
+<!-- mulher fazendo yoga -->
+
+<div id="mulherdiv" >
+	<p id="mulher" class="animacao">
+  </p>
+  </div>
+
+<!-- /mulher fazendo yoga -->
+
+<!-- velha -->
+
+<div id="velhadiv" >
+	<p id="velha" class="animacao">
+  </p>
+  </div>
+  
+<!-- /velha -->
+
+<!-- garoto -->
+
+<div id="garotodiv" >
+	<p id="garoto" class="animacao">
+  </p>
+  </div>
+  
+<!-- /garoto -->
+
+<!-- cruz -->
+
+<div id="cruzdiv" >
+	<p id="cruz" class="animacao">
+  </p>
+  </div>
+  
+<!-- /cruz -->
+
+
+<!-- seta -->
+
+
+  
+<!-- /seta -->
+
+
+<!-- corredor -->
+
+<div id="corredordiv" >
+	<p id="corredor" class="animacao">
+  </p>
+  </div>
+  
+<!-- /corredor -->
+
+
+<!-- /Animações -->
+
+
+<div class="ps" ondragstart="return false;" ondrop="return false;">
+	<img src="imgs/ps2.png" id="ps" ondragstart="return false;" ondrop="return false;">
+	<img src="imgs/genp.png" id="gp" ondragstart="return false;" ondrop="return false;">
+</div>
+<div id="cenario">
+
+	<div class="container">
+		</div>
+		<div class="oi" >
+		</div>
+		<div class="ola" >
+		</div>
+		<div class="a">
+		</div>
+		<div class="b">
+		</div>
+
+
+<div class="fundo" id= background ondragstart="return false;" ondrop="return false" ></div>
+<div class= "fundo2" id="background2" ondragstart="return false;" ondrop="return false"></div> 
+<!-- (INICIO) DIVS E CLASSES DAS LOGOS-->
+<a href="https://smd.ufc.br/pt/" target="_blank"><div class ="logo" id = "logoone" ondragstart="return false;" ondrop="return false"></div></a>
+<a href="http://www.ufc.br/" target="_blank"><div class ="logo2" id = "logotwo" ondragstart="return false;" ondrop="return false"></div></a>
+<a href="https://defisio.ufc.br/extensao/musculoesqueletica/movimento/" target="_blank"><div class ="logo3" id = "logothree" ondragstart="return false;" ondrop="return false"></div></a>
+<a href="https://defisio.ufc.br/" target="_blank"><div class ="logo4" id = "logofour" ondragstart="return false;" ondrop="return false"></div></a>
+
+
+<!-- (FIM) DIVS E CLASSES DAS LOGOS-->
+
+	<div class="source">
+			<div class="imagem" id = "a" draggable="true" onmouseover="mouse()" onmouseout="mout()" ></div>
+		</div>	
+
+</div>
+
+	<div id="elemento" ondragstart="return false;" ondrop="return false">
+		
+	</div>
+		<script>
+		var container = document.querySelector('.container'); 
+		var oi = document.querySelector('.oi');
+		var ola = document.querySelector('.ola');
+		var a = document.querySelector('.a');
+		var b = document.querySelector('.b');
+		var circle = document.querySelector('.imagem');
+
+		/*pista*/
+		container.addEventListener('dragover',entra,false);
+		container.addEventListener('dragleave',sai,false);
+		container.addEventListener('drop',saiDropPista,false);
+		
+
+		/*volei*/
+		oi.addEventListener('dragover',entra,false);
+		oi.addEventListener('dragleave',sai,false);
+		oi.addEventListener('drop',saiDropVolei,false);
+
+		/*posto*/
+		ola.addEventListener('dragover',entra,false);
+		ola.addEventListener('dragleave',sai,false);
+		ola.addEventListener('drop',saiDropPosto,false);
+
+		/*velha*/
+		a.addEventListener('dragover',entra,false);
+		a.addEventListener('dragleave',sai,false);
+		a.addEventListener('drop',saiDropVelha,false);
+
+		/*yoga*/
+		b.addEventListener('dragover',entra,false);
+		b.addEventListener('dragleave',sai,false);
+		b.addEventListener('drop',saiDropYoga,false);
+
+		//boneco
+		circle.addEventListener('dragstart',dragIniciado,false);
+		circle.addEventListener('dragend',dragFinalizado,false);
+		
+
+	// eventos mouseover e mouseout com fade
+
+$('#a').mouseover(function(){
+	$(this).fadeOut(50, function(){
+		$(this).css("background-image", 'url(imgs/homemA.png)').fadeIn(1000);
+		});
+});
+	
+	$('#a').mouseout(function(){
+	$(this).fadeOut(50, function(){
+		$(this).css("background-image", 'url(imgs/homemB.png)').fadeIn(1000);
+		});
+});
+		function dragIniciado(e){
+
+			document.getElementById('a').style.background="url('imgs/homemA.png')";
+
+			this.className+=' hold';
+
+			setTimeout(()=>(this.className = 'invisible'),0);
+
+		}
+
+		function dragFinalizado(e) {
+			
+			document.getElementById('a').style.background="url('imgs/homemB.png')";
+			this.classList.add('imagem');
+		}
+
+		function entra(e){
+			e.preventDefault();
+			this.classList.add('over');
+			return false;
+	 	}
+
+	 	function sai(e){
+			this.classList.remove('over');
+	 	}
+
+	 	/*pista*/
+
+	 	function saiDropPista(e){
+			var a = function abrir(){
+                document.getElementById('popup1').style.display='block' ;
+                 //document.getElementById('background2').style.display='block';
+			$("#background2").fadeIn(300);
+		
+       $('#background2').click(function(){
+   		$('#popup1').hide();
+   		$("#background").fadeIn(300);
+		$("#background2").fadeOut(300);
+    	$('#a').css("display", "block");
+    	
+    	if ($('#ps').css("display") == "none") {
+
+		
+    	$("#ps").fadeIn(2000);
+		$("#ps").fadeOut(5000);
+		$("#gp").fadeIn(2000);
+		$("#gp").fadeOut(5000);
+}
+		
+   });
+
+    	//document.getElementById('background').style.display='none' 
+    	document.getElementById('a').style.display= 'none'
+    	 /*document.getElementByClass('animacao').style.display= 'none' */   
+            }
+            var b = function fecharVolei(){
+		    document.getElementById('popup2').style.display= 'none';
+			}
+			var c = function fecharPosto(){
+		    document.getElementById('popup3').style.display= 'none';
+			}
+
+            eval(a());
+			eval(b());
+			eval(c());
+			e.preventDefault();
+			var dados = e.dataTransfer.getData('text');
+			this.innerHTML+=dados;
+			this.classList.remove('over');
+
+
+		}
+
+	 	function fecharPista(){
+            document.getElementById('popup1').style.display= 'none';
+            //ocument.getElementById('background2').style.display='none' 
+    	//document.getElementById('background').style.display='block'
+    	document.getElementById('a').style.display= 'block'  
+    	$("#background").fadeIn(300);
+		$("#background2").fadeOut(300);
+    	$("#ps").fadeIn(2000);
+		$("#ps").fadeOut(5000);
+		$("#gp").fadeIn(2000);
+		$("#gp").fadeOut(5000);
+        }
+	 	
+		 /*volei*/
+
+		 function saiDropVolei(e){
+		 	var a = function abrir(){
+		        document.getElementById('popup2').style.display='block' ;
+		       //document.getElementById('background2').style.display='block'
+
+		$("#background2").fadeIn(300);
+		$('#background2').click(function(){
+   		$('#popup2').hide();
+   		$("#background").fadeIn(300);
+		$("#background2").fadeOut(300);
+    	$('#a').css("display", "block");
+
+    	 if ($('#ps').css("display") == "none") {
+
+		
+    	$("#ps").fadeIn(2000);
+		$("#ps").fadeOut(5000);
+		$("#gp").fadeIn(2000);
+		$("#gp").fadeOut(5000);
+}
+});
+
+    	//document.getElementById('background').style.display='none' 
+    	document.getElementById('a').style.display= 'none'    
+		        };
+		    var b = function fecharPista(){
+		    document.getElementById('popup1').style.display= 'none';
+			}
+			var c = function fecharPosto(){
+		    document.getElementById('popup3').style.display= 'none';
+			}
+
+            eval(a());
+			eval(b());
+			eval(c());
+			e.preventDefault();
+			var dados = e.dataTransfer.getData('text');
+			this.innerHTML+=dados;
+			this.classList.remove('over');
+
+		}
+
+		function fecharVolei(){
+		    document.getElementById('popup2').style.display= 'none';
+		    //document.getElementById('background2').style.display='none' 
+    	//document.getElementById('background').style.display='block'
+    	document.getElementById('a').style.display= 'block' 
+		$("#background").fadeIn(300);
+		$("#background2").fadeOut(300);
+    	
+
+    	$("#ps").fadeIn(2000);
+		$("#ps").fadeOut(5000);
+		$("#gp").fadeIn(2000);
+		$("#gp").fadeOut(5000);
+		}
+
+		 /*posto*/
+		 function saiDropPosto(e){
+		 	var a = function abrir(){
+		     	document.getElementById('popup3').style.display='block' ;
+		     	   //document.getElementById('background2').style.display='block'
+		     	   
+		 $("#background2").fadeIn(300);
+		 $('#background2').click(function(){
+   		$('#popup3').hide();
+   		$("#background").fadeIn(300);
+		$("#background2").fadeOut(300);
+    	$('#a').css("display", "block");
+
+ 		if ($('#ps').css("display") == "none") {
+
+		
+    	$("#ps").fadeIn(2000);
+		$("#ps").fadeOut(5000);
+		$("#gp").fadeIn(2000);
+		$("#gp").fadeOut(5000);
+		
+}
+   });
+
+
+    			//document.getElementById('background').style.display='none'
+    			document.getElementById('a').style.display= 'none'   
+		        };
+		    var b = function fecharPista(){
+		    document.getElementById('popup1').style.display='none' ;
+			}
+			var c = function fecharVolei(){
+		    document.getElementById('popup2').style.display= 'none';
+			}
+
+            eval(a());
+			eval(b());
+			eval(c());
+			e.preventDefault();
+			var dados = e.dataTransfer.getData('text');
+			this.innerHTML+=dados;
+			this.classList.remove('over');
+
+		}
+
+		function fecharPosto(){
+		    document.getElementById('popup3').style.display= 'none';
+		   //document.getElementById('background2').style.display='none'; 
+    	//document.getElementById('background').style.display='block';
+    	document.getElementById('a').style.display= 'block'   
+    	$("#background").fadeIn(300);
+		$("#background2").fadeOut(300);
+    	
+    	$("#ps").fadeIn(2000);
+		$("#ps").fadeOut(5000);
+		$("#gp").fadeIn(2000);
+		$("#gp").fadeOut(5000);
+
+		}
+		/*velhinha*/
+		 function saiDropVelha(e){
+		 	var a = function abrir(){
+		     	document.getElementById('popup4').style.display='block' ;
+		     	   //document.getElementById('background2').style.display='block'
+		     	   $("#background2").fadeIn(300);
+		 $('#background2').click(function(){
+   		$('#popup4').hide();
+   		$("#background").fadeIn(300);
+		$("#background2").fadeOut(300);
+    	$('#a').css("display", "block");
+
+    	if ($('#ps').css("display") == "none") {
+
+		
+    	$("#ps").fadeIn(2000);
+		$("#ps").fadeOut(5000);
+		$("#gp").fadeIn(2000);
+		$("#gp").fadeOut(5000);
+		
+	}
+   });
+		     	   
+    			//document.getElementById('background').style.display='none'
+    			document.getElementById('a').style.display= 'none'   
+		        };
+		    var b = function fecharPista(){
+		    document.getElementById('popup1').style.display='none' ;
+			}
+			var c = function fecharVolei(){
+		    document.getElementById('popup2').style.display= 'none';
+			}
+			var d = function fecharPosto(){
+		    document.getElementById('popup3').style.display='none' ;
+			}
+
+            eval(a());
+			eval(b());
+			eval(c());
+			eval(d());
+			e.preventDefault();
+			var dados = e.dataTransfer.getData('text');
+			this.innerHTML+=dados;
+			this.classList.remove('over');
+
+		}
+
+		function fecharVelha(){
+		document.getElementById('popup4').style.display= 'none';
+		//document.getElementById('background2').style.display='none'; 
+    	//document.getElementById('background').style.display='block';
+    	$("#background").fadeIn(300);
+		$("#background2").fadeOut(300);
+    	
+    	document.getElementById('a').style.display= 'block'   
+    	''
+    	$("#ps").fadeIn(2000);
+		$("#ps").fadeOut(5000);
+		$("#gp").fadeIn(2000);
+		$("#gp").fadeOut(5000);
+
+		}
+		/*yoga*/
+		 function saiDropYoga(e){
+		 	var a = function abrir(){
+		     	document.getElementById('popup5').style.display='block' ;
+		     	   //document.getElementById('background2').style.display='block'
+		     	   $("#background2").fadeIn(300);
+		 $('#background2').click(function(){
+   		$('#popup5').hide();
+   		$("#background").fadeIn(300);
+		$("#background2").fadeOut(300);
+    	$('#a').css("display", "block");
+
+    	if ($('#ps').css("display") == "none") {
+
+		
+    	$("#ps").fadeIn(2000);
+		$("#ps").fadeOut(5000);
+		$("#gp").fadeIn(2000);
+		$("#gp").fadeOut(5000);
+	} 
+	  });
+		     	   
+    			//document.getElementById('background').style.display='none'
+    			document.getElementById('a').style.display= 'none'   
+		        };
+		    var b = function fecharPista(){
+		    document.getElementById('popup1').style.display='none' ;
+			}
+			var c = function fecharVolei(){
+		    document.getElementById('popup2').style.display= 'none';
+			}
+
+            eval(a());
+			eval(b());
+			eval(c());
+			e.preventDefault();
+			var dados = e.dataTransfer.getData('text');
+			this.innerHTML+=dados;
+			this.classList.remove('over');
+
+		}
+
+		function fecharYoga(){
+		    document.getElementById('popup5').style.display= 'none';
+		   //document.getElementById('background2').style.display='none'; 
+    	//document.getElementById('background').style.display='block';
+    	document.getElementById('a').style.display= 'block'   
+    	$("#background").fadeIn(300);
+		$("#background2").fadeOut(300);
+    	$("#ps").fadeIn(2000);
+		$("#ps").fadeOut(5000);
+		$("#gp").fadeIn(2000);
+		$("#gp").fadeOut(5000);
+		}
+    function abrir(){
+    	document.getElementById('info').style.display=
+    	'block'
+    	//document.getElementById('background2').style.display='block';
+    	//document.getElementById('background').style.display='none';
+    	$("#background2").fadeIn(300);
+
+    }
+    function fechar(){
+    	document.getElementById('info').style.display='none';
+    	//document.getElementById('background2').style.display='none' 
+    	document.getElementById('background').style.display='block'
+    	 
+   		$("#background").fadeIn(300);
+		$("#background2").fadeOut(300);
+    }
+    function fechar2(){
+    document.getElementById('nseii').style.display='none';
+    //document.getElementById('background2').style.display='none' 
+    document.getElementById('background').style.display='block'
+    
+ 	$("#background").fadeIn(300);
+	$("#background2").fadeOut(300);
+    	
+
+    		
+    }
+
+    $('#background2').click(function(){
+   		$('#nseii').css("display", "none");
+   		$('background').css("display", "block");
+   		// $("#background").fadeIn(300);
+		// $("#background2").fadeOut(300);
+    	//$('#a').css("display", "block");
+    	
+   });
+
+
+      $('#background2').click(function(){
+   		$('#info').css("display", "none");
+   		$("#background").fadeIn(300);
+		$("#background2").fadeOut(300);
+    	//$('#a').css("display", "block");
+    	
+   });
+
+
+
+
+	</script>
+
+
+	<div id= "popup1" class= "popup" ondragstart="return false;" ondrop="return false">
+
+		<div class="texto" id="texto1" ondragstart="return false;" ondrop="return false">
+		
+		<br>
+		<h3 > A CAMINHADA É INDICADA PARA PESSOAS COM DLC.</h3><br>
+		<P > A caminhada é um exercício simples, gratuito, de baixo impacto físico e com <b>ganhos importantes</b> para sua saúde. Se você nunca caminhou ou não está praticando nenhum exercício físico, comece caminhando 10 minutos e vá progredindo gradualmente com o passar das semanas. 
+		Procure estar bem alimentado, bem como utilizar roupas leves para a caminhada e usar tênis confortáveis. E não esqueça de respeitar seus limites, afinal o importante é <b>se sentir bem!</b>
+
+		</P>
+            <button onclick="Javascript:fecharPista();" class="botao">X</button>
+            <img src="imgs/corredor.png" id="imgpista">
+    </div>   
+    </div>
+	    <div id= "popup2" class= "popup" ondragstart="return false;" ondrop="return false">
+	    	<div class="texto" id="texto2">
+			<br>
+	        <h3 ondragstart="return false;" ondrop="return false">O MOVIMENTO GRADATIVO É O REMÉDIO PARA A DOR LOMBAR.
+			</h3><br>
+			<p > Contra a dor lombar o <b>movimento</b> é um grande aliado. Tratamentos passivos realizados pela força do terapeuta e repouso não são recomendados, pois a movimentação pode ser colocada no seu dia a dia através de atitudes simples, como continuar realizando as atividades diárias, laborais e de lazer, bem como praticar exercícios físicos! Mas é bom lembrar que você tem que respeitar seus limites! 
+			Vá com <b>calma</b> e <b>gradativamente</b>, no início faça movimentos mais simples, com o tempo e sempre respeitando seus limites vá tornando-os mais difíceis ou complexos. Esses são os passos iniciais para começar a perder o medo. 
+			A dor pode acontecer durante a atividade, mas não deve continuar nem aumentar depois de terminá-la. Sentindo-se seguro com o movimento atual progrida gradualmente até conseguir fazê-los <b>livremente.</b>
+			</P>
+	            <button onclick="Javascript:fecharVolei();" class="botao">X</button>
+	            <img src="imgs/basquete.png" id="imgvolei">
+	   </div>     
+    </div>
+    <div id= "popup3" class= "popup" ondragstart="return false;" ondrop="return false">
+    	<div class="texto" id="texto3">
+    	<br>
+			<h3 > CONTE COM APOIO DA EQUIPE DE SAÚDE:</h3><br>
+			<P > O fisioterapeuta da Unidade Básica de Saúde(UBS) mais próxima da sua casa pode ajudá-lo no <b>planejamento</b> e na <b>progressão</b> da intensidade dos exercícios físicos, lá você também pode perguntar sobre os <b>grupos de exercícios</b> ou ver quais há perto de você. 
+			Na presença de sinais negativos relacionados à saúde mental e bem estar social que estejam influenciando de <b>maneira ruim</b> a sua saúde, como sintomas depressivos, ansiedade e pensamentos negativos sobre a dor lombar, procure ajuda da equipe de saúde mais próxima. <i>Não se esqueça, há sempre alguém pronto para te ajudar!</i>
+
+</P>
+	            <button onclick="Javascript:fecharPosto();" class="botao">X</button>
+	            <img src="imgs/posto.png" id="imgposto">
+	       </div>
+    </div>
+    </div>
+    <div id= "popup4" class= "popup" ondragstart="return false;" ondrop="return false">
+    	<div class="texto" id="texto4">
+    	<br>
+			<h3 > ENFRENTAR O MEDO DE SE MOVIMENTAR É O PRIMEIRO PASSO!
+</h3><br>
+			<P>Para controlar a dor o movimento também é um <b>aliado</b>. Sentir dor ao tentar fazer um determinado movimento é normal devido a dor lombar, mas isso não deve ser levado como uma <b>proibição</b> de realizar tal movimento! Pois deixar de fazê-lo pode colaborar para que a dor persista e se agrave, impondo incapacidades nas atividades cotidianas. 
+			Mas não se preocupe, com o esforço você <b>pode</b> e <b>vai</b> mudar tal situação! O essencial é continuar <b>enfrentando o medo</b> e fazer escolhas ativas para isso, envolva-se com várias atividades físicas no seu dia-a-dia! Se exercitar faz bem pois com isso você pode: <b>Desenvolver</b> mais força, <b>Fortalecer</b> os ossos, <b>Diminuir</b> a dor muscular, <b>Realizar</b> melhor as tarefas cotidianas, <b>Melhorar</b> a qualidade de vida e o humor e <b>Fazer bons amigos!</b>
+</P>
+	            <button onclick="Javascript:fecharVelha();" class="botao">X</button>
+	            <img src="imgs/vea.png" id="imgvelha">
+	       </div>
+    </div>
+     <div id= "popup5" class= "popup" ondragstart="return false;" ondrop="return false">
+    	<div class="texto" id="texto5">
+    	<br>
+			<h3 > ESTILO DE VIDA ATIVO COMBINA COM LAZER, PRINCIPALMENTE O QUE GOSTA DE FAZER.</h3><br>
+			<P> Dentre as formas de se manter ativo, a participação em atividades físicas de lazer influencia diretamente a <b>melhora da dor</b> lombar devido seus diversos efeitos sobre a saúde. Qual atividade física de lazer <b>você</b> gosta de praticar? 
+			Caminhar? Correr? Dançar? Nadar? Não há exercício melhor de se fazer do que aquele que você <b>gosta!</b> Escolha o tipo de exercício pensando em suas necessidades, preferências e capacidades. Se o exercício que fez não te ajudou não significa que não serve, afinal, <b>se exercitar faz bem!</b> Converse com o fisioterapeuta da sua Unidade Básica de Saúde para que ele possa orientar você a respeito das possibilidades de exercícios para você!</P>
+	            <button onclick="Javascript:fecharYoga();" class="botao">X</button>
+	            <img src="imgs/yoga.png" id="imgyoga">
+	       </div>
+    </div>
+
+<div id ="info" class= "pp">
+	<h3>INFORMAÇÕES.</h3> 
+
+<p>Este é um infográfico desenvolvido através do esforço conjunto entre alunos e professores tanto do curso de Sistemas e Mídias digitais de UFC quanto do curso de Fisioterapia da UFC. O conteúdo aqui apresentado baseia-se em parte de um livreto criado pela professora Ana Carla Lima Nunes(que pode ser acessado através deste <a href="https://defisio.ufc.br/extensao/musculoesqueletica/movimento/" target="_blank">Link</a> ) com o intuito de auxiliar pessoas que sofrem com a dor lombar crônica a se tratarem da melhor forma, nele é possível ler sobre diversos aspectos dos cuidados com esse problema.</p>
+<p>
+Para usar o Infográfico clique e arraste o boneco desanimado até algum lugar com animação para que ele aprenda o que pode fazer para melhorar a dor nas costas.</p>
+	
+	 <button onclick="Javascript:fechar();" class="botao">X</button>
+</div>
+<div id='nseii' class="popup100">
+	<h3>Bem-vindo ao MoveDor</h3> 
+
+<p>
+Para usar o Infográfico clique e arraste o boneco desanimado até algum lugar com animação para que ele aprenda o que pode fazer para melhorar a dor nas costas.</p>
+
+	
+	
+	 <button onclick="Javascript:fechar2();" class="botao">X</button>
+</div>
+<button onclick="Javascript:abrir();" class= "bt">i</button>
+<!--<a href="Javascript:abrir();"class="bt">i</a> */ -->
+</body>

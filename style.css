@@ -1,0 +1,695 @@
+* {
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+    
+}
+
+@font-face {
+     font-family: bigjohn;
+     src: url('fonts/BigJohnPRO-Bold.otf');
+}
+@font-face {
+     font-family: slimjoe;
+     src: url('fonts/Slim Joe.otf');
+}
+@font-face {
+     font-family: candara;
+     src: url('fonts/candara-4.ttf');
+}
+
+
+div#cenario img {
+    width: 100%;
+}
+#logoone{
+;
+    background-size: 100% !important
+}
+
+#logotwo{
+
+    background-size: 100% !important;
+}
+#logothree{
+
+    background-size: 100% !important;
+}
+#logofour{
+
+    background-size: 100% !important;
+}
+
+/* para garantir que estes elemeBIG JOHNntos ocuparão toda a tela */
+body, html {
+     
+    width: 100%;
+    height: 100%;
+    font-family: Arial, Tahoma, sans-serif;
+}
+
+#fundo-externo {
+    overflow: hidden; /* para que não tenha rolagem se a imagem de fundo for maior que a tela */
+    width: 100%;
+    height: 100%;
+    position: relative; /* criamos um contexto para posicionamento */
+}
+
+#fundo {
+    position: fixed; /* posição fixa para que a possível rolagem da tela não revele espaços em branco */
+    width: 100%;
+    height: 100%;
+}
+
+#fundo img {
+    width: 100%; /* com isso imagem ocupará toda a largura da tela. Se colocarmos height: 100% também, a imagem irá distorcer */
+    position: absolute;
+
+}
+.source {
+    width: 81px;
+    margin: 20.1% 28% 0;
+    background: black;
+    display: inline-block;
+    vertical-align: top;
+    transition: all 0.4s;
+}
+
+#a {
+        background-size: 100% !important;
+}
+.over{
+    box-shadow: 0px 0px 10px 3px rgba(0,0,0,0.4);
+    -webkit-tranform: scale(1.1);
+
+}
+
+
+
+.container {
+   position: absolute;
+    width: 13%;
+    height: 0;
+    padding-bottom: 14.4%;
+    background: #000;
+    top: 38.7%;
+    left: 33.5%;
+    z-index: 4;
+    transform: rotate(0);
+    vertical-align: top;
+    transition: all 0.4s;
+    background: transparent;
+    transform: rotate(300deg) skewY(-150deg) scaleX(0.86605);
+}
+
+div#cenario {
+    display: flex;
+}
+
+.oi {
+   position: absolute;
+    float: right;
+    height: 0;
+    overflow: auto;
+    left: 53%;
+    top: 49%;
+    width: 12%;
+    padding-bottom: 8%;
+    /* display: inline-block; */
+    border-color: black;
+    vertical-align: top;
+    background: #00ff4e;
+    transition: all 0.4s;
+    background: transparent;
+    transform: rotate(300deg) skewY(-150deg) scaleX(0.86605);
+}
+
+
+.ola {
+    position: absolute;
+    float: right;
+    overflow: auto;
+    height: 0;
+    width: 11.5%;
+    padding-bottom: 11%;
+    background: #9a2929;
+    top: 25%;
+    left: 67%;
+    vertical-align: top;
+    transition: all 0.4s;
+    background: transparent;
+    transform: rotate(-31deg);
+       
+}
+.a {
+   position: absolute;
+    float: right;
+    height: 0;
+    overflow: auto;
+    left: 49%;
+    top: 33%;
+    width: 4.2%;
+    padding-bottom: 6.5%;
+    /* display: inline-block; */
+    border-color: black;
+    vertical-align: top;
+    b
+    transition: all 0.4s;
+    background: transparent;
+    
+}
+.b {
+   position: absolute;
+    float: right;
+    height: 0;
+    overflow: auto;
+    left: 56%;
+    top: 20%;
+    width: 9.5%;
+    padding-bottom: 5.4%;
+    /* display: inline-block; */
+    border-color: black;
+    vertical-align: top;
+    background: #00ff4e;
+    transition: all 0.4s;
+    background: transparent;
+    transform: rotate(375deg) skewY(-166deg) scaleX(0.86605);
+}
+
+.fundo {
+    background: url(imgs/CenarioIsometrico.jpg) center no-repeat;
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    z-index: -1;
+    position: fixed;
+     display:none;
+}
+.fundo2 {
+    background: url(imgs/CenarioIsometrico2.jpg) center no-repeat;
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    z-index: -1;
+    position: fixed;
+    filter:blur(9px);
+    /*display:none;*/
+    z-index: 200;
+    
+}
+
+.circle{
+    position: absolute;
+    border-radius:50%;
+    display: float;
+    right: 20px;
+    bottom: 25px;
+    width:50px;
+    height:50px;
+    background-color:purple;
+    z-index: 2;
+    cursor: move;
+}
+.popup {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 43%;
+    height: max-content;
+    z-index: 99999;
+    display: none;
+        padding: 25px;
+    border-radius: 20px;
+    background: rgba(255,255,255, 0.9);
+    text-align: justify;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.5);
+
+    @media( max-width: 800px ){
+            position: relative;
+      width: 100%;
+    }
+}
+
+
+
+
+.botao{
+    position: absolute;
+    top: 10px; 
+    right: 10px;
+    transition: 0.3s ease-in;
+    background-color: transparent;
+    border-color: transparent;
+    color: #FF7F50;
+    font-size:20px;
+    outline: none;
+    
+}
+.botao:hover{
+    transition: 0.3s ease-in;
+    color: #FF0000;
+    cursor: pointer;
+}
+/*.over{
+    box-shadow: 0px 0px 10px 3px rgba(0,0,0,0.4);
+    -webkit-tranform: scale(1.1);
+
+}*/
+.imagem {
+    position: absolute;
+    width: 4%;
+    height: 0;
+    left: 28%;
+    top: 28%;
+    padding-bottom: 9.0%;
+    background: url(imgs/homemB.png)no-repeat 0 0;
+    cursor: move;
+    z-index: 1;
+    float: left;
+    background-repeat: no-repeat;
+ /* */
+
+
+
+}
+ {
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+}
+
+
+h3{
+ font-family: bigjohn;   
+ text-align:center;
+}
+
+p{
+ font-family: candara;   
+ text-align: justify;
+
+}
+button{
+    text-align: center;
+}
+.bt{ 
+    position: absolute;
+    font-family: BIG JOHN;
+    right: 5%;
+    top: 4%;
+    border-radius: 53%;
+    border: 1px solid rgba(255, 0, 0, .5);
+    height: 0;
+    width: 2.7%;
+    cursor: pointer;
+    color: #fff;
+    border-color: #1E90FF;
+    background: #1E90FF;
+    outline: none;
+    padding-bottom: 2.4%;
+    font:13/1.4;
+    text-align: center;
+   }
+@media screen and (min-width: 800px) {
+  .bt {
+    font-size: calc(8px + (19/1366) * 100 * 1vw);
+    text-align: center;
+    transition: 0.5s ease-in;
+
+    }}
+
+  
+.bt:hover {
+    transition: 0.5s ease-in;
+    border-color:#fff;
+    background-color:#fff;
+    color:#1E90FF;
+}
+.pp{
+ position: absolute;
+    top: 30%;
+    bottom: 61%;
+    left: 51%;
+    right: 0;
+    margin: auto;
+    width: 33%;
+    height: max-content;
+    padding-top: 96%;
+    z-index: 99999;
+    display: none;
+    padding: 25px;
+    border-radius: 20px;
+    text-align: justify;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.5);
+    background: rgba(192,217,217, 0.9);
+    word-wrap: break-word;
+    text-align: justify;
+  
+}
+
+.ps{
+    position: relative;
+}
+
+#ps{
+    position: absolute;
+    z-index: 9999;
+    display: none;
+    height: auto;
+    width: 12%;
+}
+
+#gp{
+    position: absolute;
+    z-index: 8888;
+    left: 12vw;
+    top: 7vh;
+    height: auto;
+    display: none;
+   
+}
+
+
+
+.logo{
+    position: absolute;
+    width: 5.7%;
+    height: 0;
+    background-image: url(imgs/logo1.png);
+    left: 51%;
+    top: 75.6%;
+    padding-bottom: 10%;
+    background-repeat: no-repeat;
+     transition:  0.5s ease-in; 
+}
+.logo:hover{
+    position: absolute;
+    width: 5.7%;
+    height: 0;
+    background-image: url(imgs/logo1c.png);
+    left: 51%;
+    top: 75.6%;
+    padding-bottom: 10%;
+    background-repeat: no-repeat;
+     transition:  0.5s ease-in;
+     
+}
+.logo2{
+    position: absolute;
+    width: 7%;
+    height: 0;
+    top: 68%;
+    left: 58%;
+    padding-bottom: 7.5%;
+    z-index: 1;
+    float: left;
+    background: url(imgs/logo2.png)no-repeat 0 0;
+      transition:  0.5s ease-in; 
+    
+}
+.logo2:hover{
+    position: absolute;
+    width: 7%;
+    height: 0;
+    top: 68%;
+    left: 58%;
+    padding-bottom: 7.5%;
+    z-index: 1;
+    float: left;
+    background: url(imgs/logo2c.png) no-repeat 0 0;
+     transition:  0.5s ease-in;
+}
+.logo3{
+    position: absolute;
+    width: 6.6%;
+    height: 0;
+    background-image: url(imgs/logo3.png);
+    background-repeat: no-repeat;
+    padding-bottom: 8%;
+    left: 66.5%;
+    top: 58%;
+
+     transition:  0.5s ease-in;transition: ;
+    
+}
+.logo3:hover{
+   position: absolute;
+    width: 6.6%;
+    height: 0;
+    background-image: url(imgs/logo3c.png);
+    background-repeat: no-repeat;
+    padding-bottom: 8%;
+    left: 66.5%;
+    top: 58%;
+    transition:  0.5s ease-in; 
+}
+
+.logo4{
+   position: absolute;
+    height: 0;
+    width: 4.8%;
+    background-image: url(imgs/logo4.png);
+    background-repeat: no-repeat;
+    padding-bottom: 7%;
+    left: 73.8%;
+    top: 49.5%;
+     transition:  0.5s ease-in; 
+}
+.logo4:hover{
+    position: absolute;
+    height: 0;
+    width: 4.8%;
+    background-image: url(imgs/logo4c.png);
+    background-repeat: no-repeat;
+    padding-bottom: 7%;
+    left: 73.8%;
+    top: 49.5%;
+     transition:  0.5s ease-in;
+}
+
+
+
+/* animações */
+
+#mulher {
+    position: absolute;
+    left: 58%;
+    top: 19%;
+    height: 0;
+    width: 7.1%;
+    padding-bottom: 5.5%;
+  background: 
+  url('imgs/mulher.png') 0 0;
+  }
+
+
+  #velha {
+    position: absolute;
+    left: 49.5%;
+    top: 34%;
+    height: 0;
+    width: 3.6%;
+    padding-bottom: 5.8%;
+  background: 
+  url('imgs/VovoAjustada.png') 0 0;
+  }
+
+
+  #garoto {
+    position: absolute;
+    left: 56%;
+    top: 52%;
+    height: 0;
+    width: 42px;
+    padding-bottom: 6%;
+  background: 
+  url('imgs/GarotoV11.png') 0 0;
+  }
+
+
+  #cruz {
+    position: absolute;
+    left: 70%;
+    top: 33%;
+    height: 0;
+    width: 2.45%;
+    padding-bottom: 2.92%;
+  background: 
+  url('imgs/cruzv4.png') 0 0;
+  }
+
+
+  
+  #seta {
+    position: absolute;
+    left: 36%;
+    top: 270px;
+    height: 136px;
+    width: 52px;
+  background: 
+  url('imgs/setaV8.png') 0 0;
+  }
+
+  
+  #corredor {
+    position: absolute;
+    left: 36%;
+    top: 37%;
+    height: 0;
+    width: 4.4%;
+    padding-bottom: 5.9%;
+  background: 
+  url('imgs/CorredorV5.png') 0 0;
+  }
+
+
+
+
+/* animações */
+.popup100{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 33%;
+    height: max-content;
+    z-index: 99999;
+
+        padding: 25px;
+    border-radius: 20px;
+    background: rgba(255,255,255, 0.9);
+    text-align: justify;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.5);
+
+
+}
+
+
+/* Imagem POPUP */
+
+#texto1 p{
+    text-align: left;
+    float: right;
+    width: 48%;
+    
+
+}
+@media screen and (min-width: 640px) {
+    #texto1 p {
+    font-size: calc(1px + (17/1366) * 100 * 1vw);
+    text-align: left;
+    transition: 0.5s ease-in;
+}
+ 
+
+    }
+
+
+#texto2 p{
+    text-align: left;
+    float: right;
+    width: 46%;
+    
+
+}
+@media screen and (min-width: 640px) {
+    #texto2 p {
+    font-size: calc(1px + (12.5/1366) * 100 * 1vw);
+    text-align: left;
+    transition: 0.5s ease-in;
+}
+ 
+
+    }
+
+#texto3 p{
+    text-align: left;
+    float: right;
+    width: 48%;
+    
+
+}
+@media screen and (min-width: 640px) {
+    #texto3 p {
+    font-size: calc(1px + (17/1366) * 100 * 1vw);
+    text-align: left;
+    transition: 0.5s ease-in;
+}
+
+/*texto velhinha*/
+#texto4 p{
+    text-align: left;
+    float: right;
+    width: 46%;
+    
+
+}
+@media screen and (min-width: 640px) {
+    #texto4 p {
+    font-size: calc(1px + (12.5/1366) * 100 * 1vw);
+    text-align: left;
+    transition: 0.5s ease-in;
+}
+
+
+#texto5 p{
+    text-align: left;
+    float: right;
+    width: 49%;  
+}
+@media screen and (min-width: 640px) {
+    #texto5 p {
+    font-size: calc(1px + (14.2/1366) * 100 * 1vw);
+    text-align: left;
+    transition: 0.5s ease-in;
+}
+ 
+
+    }
+
+
+#imgpista{
+   position: relative;
+    float: left;
+    width: 51%;
+    height: auto;
+    padding: 1px 2px 2px 0;
+   }
+
+#imgvolei{
+   position: relative;
+    float: left;
+    width: 53%;
+    height: auto;
+    padding: 1px 2px 2px 0;
+}
+
+#imgposto{
+   position: relative;
+    float: left;
+    width: 51%;
+    height: auto;
+    padding: 1px 2px 2px 0;
+}
+
+#imgvelha{
+   position: relative;
+    float: left;
+    width: 53%;
+    height: auto;
+    padding: 1px 2px 2px 0;
+}
+
+#imgyoga{
+   position: relative;
+    float: left;
+    width: 50%;
+    height: auto;
+    padding: 1px 2px 2px 0;
+}
+
